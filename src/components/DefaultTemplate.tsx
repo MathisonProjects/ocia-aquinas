@@ -66,6 +66,9 @@ export default function DefaultTemplate({ children }: any) {
             <ListItem component={Link} href="/education-material">
               <ListItemText primary="Education Material" />
             </ListItem>
+            <ListItem component={Link} href="/parish-registration">
+              <ListItemText primary="Parish Registration" />
+            </ListItem>
           </List>
           </div>
         </Drawer>
