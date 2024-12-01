@@ -576,7 +576,7 @@ export default function ParishRegistration() {
               </>
           ))}
           </Grid>
-          <Grid item xs={12} sx={{ textAlign: 'right', paddingBottom: '32px' }}>
+          <Grid item xs={12} sx={{ textAlign: 'right', paddingBottom: '48px' }}>
             <Button variant="contained" onClick={submitForm} sx={{ marginTop: 2 }}>Submit Form</Button>
           </Grid>
         </Container>
