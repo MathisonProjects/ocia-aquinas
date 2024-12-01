@@ -18,16 +18,16 @@ export default function EducationMaterial() {
       <DefaultTemplate>
         <Container>
           <Grid2 container spacing={2}>
-            <Grid2 size={6}>
+            <Grid2 size={12}>
               <Typography variant="h4" gutterBottom>
                   Education Material
                 </Typography>
             </Grid2>
-            <Grid2 size={6}>
+            <Grid2 size={12}>
                 <Select
                   value={lesson}
                   onChange={(e) => setLesson(e.target.value)}
-                  sx={{ backgroundColor: 'white', color: 'black' }}
+                  sx={{ backgroundColor: 'white', color: 'black', 'marginBottom': '16px' }}
                   fullWidth
                 >
                 {lessons.map((lesson) => (
