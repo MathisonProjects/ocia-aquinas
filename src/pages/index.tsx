@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Container, Typography, Link, CssBaseline } from "@mui/material";
+import { Container, Typography, Link, CssBaseline, Grid2 } from "@mui/material";
 import DefaultTemplate from "@/components/DefaultTemplate";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
