@@ -8,9 +8,8 @@
 
   display: grid;
   grid-template-rows: 20px 1fr 20px;
-  align-items: center;
   justify-items: center;
-  min-height: 100svh;
+  min-height: calc(100svh - 120px);
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
@@ -96,10 +95,15 @@ a.secondary {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--background);
+  padding: 16px;
+  justify-content: center;
 }
 
 .footer a {
-  display: flex;
   align-items: center;
   gap: 8px;
 }
@@ -129,7 +133,7 @@ a.secondary {
 @media (max-width: 600px) {
   .page {
     padding: 32px;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
   }
 
   .main {
@@ -165,4 +169,8 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+.center-text {
+  text-align: center;
 }
