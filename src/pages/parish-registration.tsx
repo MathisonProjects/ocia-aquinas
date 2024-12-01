@@ -46,6 +46,8 @@ const langData: any = {
               }
             },
             household: {
+              add: "Add Household Member",
+              remove: "Remove Household Member",
               title: "Household Member",
               lastName: "Last Name",
               firstName: "First Name",
@@ -104,6 +106,8 @@ const langData: any = {
             }
           },
           household: {
+            add: "Agregar Miembro de la Casa",
+            remove: "Eliminar Miembro de la Casa",
             title: "Miembro de la Casa",
             lastName: "Apellido",
             firstName: "Nombre",
@@ -382,7 +386,7 @@ export default function ParishRegistration() {
           )}
           <Grid container spacing={2} direction="row" sx={{ marginTop: 2, paddingBottom: '32px' }}>
             <Grid item xs={12}>
-              <Button variant="contained" sx={{ marginTop: 2 }} onClick={addHouseholdMember}>Add Household Member</Button>
+              <Button variant="contained" sx={{ marginTop: 2 }} onClick={addHouseholdMember}>{langData[language].fields.household.add}</Button>
             </Grid>
           {formData.household?.map((member: any, index: number) => (
               <>
@@ -390,7 +394,7 @@ export default function ParishRegistration() {
                 <h4>{langData[language].fields.household.title}</h4>
               </Grid>
               <Grid item xs={6}>
-                <Button variant="contained" color="error" onClick={() => removeHouseholdMember(index)}>Remove Household Member</Button>
+                <Button variant="contained" color="error" onClick={() => removeHouseholdMember(index)}>{langData[language].fields.household.remove}</Button>
               </Grid>
               <Grid item xs={4}>
                 <TextField
