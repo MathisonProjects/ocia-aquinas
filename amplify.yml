@@ -6,8 +6,8 @@ frontend:
         - npm install --force
     build:
       commands:
-        - echo > .env
         - npm run build
+        - cp ./build/required-server-files.json ./out/required-server-files.json
   artifacts:
     baseDirectory: out
     files:
