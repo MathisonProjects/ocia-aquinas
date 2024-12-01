@@ -43,7 +43,7 @@ export default function Bible() {
             </Grid2>
         </Grid2>
         <Typography variant="h4">
-            <List>
+            <List sx={{ 'marginBottom': '32px' }}>
                 {Object.keys(bibleData[book][chapter]).map((verseNumber) => (
                     <ListItem key={verseNumber}>
                         <ListItemText primary={<><strong>{verseNumber}:</strong> {bibleData[book][chapter][verseNumber]}</>} />

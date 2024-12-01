@@ -75,11 +75,11 @@ export default function DefaultTemplate({ children }: any) {
 
         <footer className={styles.footer}>
           <Typography variant="body2" color="textSecondary" align="center">
-            <Link href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer" underline="hover">
+            <Link href="https://www.mathisonprojects.com/" target="_blank" rel="noopener noreferrer" underline="hover">
               Created by Mathison Projects Inc
             </Link>
             {" | "}
-            <Link href="https://stacathedral.com/" target="_blank" rel="noopener noreferrer" underline="hover">
+            <Link href="https://www.stacathedral.com/" target="_blank" rel="noopener noreferrer" underline="hover">
               Created in support of OCIA for St Thomas Aquinas Cathedral
             </Link>
             <br />
