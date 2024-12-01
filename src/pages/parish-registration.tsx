@@ -26,6 +26,8 @@ const langData: any = {
             sacraments: {
               baptism: "Baptism",
               firstCommunion: "First Communion",
+              confirmation: "Confirmation",
+              marriageInChurch: "Marriage in the Church",
             },
             spouse: {
               title: "Spouse",
@@ -39,6 +41,8 @@ const langData: any = {
               sacraments: {
                 baptism: "Baptism",
                 firstCommunion: "First Communion",
+                confirmation: "Confirmation",
+                marriageInChurch: "Marriage in the Church",
               }
             },
             household: {
@@ -52,6 +56,8 @@ const langData: any = {
               sacraments: {
                 baptism: "Baptism",
                 firstCommunion: "First Communion",
+                confirmation: "Confirmation",
+                marriageInChurch: "Marriage in the Church",
               }
             }
         }
@@ -78,6 +84,8 @@ const langData: any = {
           sacraments: {
             baptism: "Bautismo",
             firstCommunion: "Primera Comunión",
+            confirmation: "Confirmación",
+            marriageInChurch: "Matrimonio en la Iglesia",
           },
           spouse: {
             title: "Cónyuge",
@@ -91,6 +99,8 @@ const langData: any = {
             sacraments: {
               baptism: "Bautismo",
               firstCommunion: "Primera Comunión",
+              confirmation: "Confirmación",
+              marriageInChurch: "Matrimonio en la Iglesia",
             }
           },
           household: {
@@ -104,6 +114,8 @@ const langData: any = {
             sacraments: {
               baptism: "Bautismo",
               firstCommunion: "Primera Comunión",
+              confirmation: "Confirmación",
+              marriageInChurch: "Matrimonio en la Iglesia",
             }
           }
         }
@@ -253,6 +265,32 @@ export default function ParishRegistration() {
                 sx={{ backgroundColor: 'white', color: 'black' }}
               />
             </Grid>
+            <Grid item xs={4}>
+              <Typography variant="h6" gutterBottom>
+                {langData[language].fields.sacraments.confirmation}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Checkbox
+                checked={formData.sacraments?.confirmation || false}
+                onChange={(e) => setFormData({ ...formData, sacraments: { ...formData.sacraments, confirmation: e.target.checked } })}
+                inputProps={{ 'aria-label': 'Confirmation' }}
+                sx={{ backgroundColor: 'white', color: 'black' }}
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <Typography variant="h6" gutterBottom>
+                {langData[language].fields.sacraments.marriageInChurch}
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Checkbox
+                checked={formData.sacraments?.marriageInChurch || false}
+                onChange={(e) => setFormData({ ...formData, sacraments: { ...formData.sacraments, marriageInChurch: e.target.checked } })}
+                inputProps={{ 'aria-label': 'Marriage in the Church' }}
+                sx={{ backgroundColor: 'white', color: 'black' }}
+              />
+            </Grid>
           </Grid>
           <Grid container spacing={2} direction="row" sx={{ marginTop: 2 }}>
             <Grid item xs={12}>
@@ -314,6 +352,32 @@ export default function ParishRegistration() {
                   sx={{ backgroundColor: 'white', color: 'black' }}
                 />
               </Grid>
+              <Grid item xs={3}>
+                <Typography variant="h6" gutterBottom>
+                  {langData[language].fields.spouse.sacraments.confirmation}
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Checkbox
+                  checked={formData.spouse?.sacraments?.confirmation || false}
+                  onChange={(e) => setFormData({ ...formData, spouse: { ...formData.spouse, sacraments: { ...formData.spouse.sacraments, confirmation: e.target.checked } } })}
+                  inputProps={{ 'aria-label': 'Confirmation' }}
+                  sx={{ backgroundColor: 'white', color: 'black' }}
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <Typography variant="h6" gutterBottom>
+                  {langData[language].fields.spouse.sacraments.marriageInChurch}
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Checkbox
+                  checked={formData.spouse?.sacraments?.marriageInChurch || false}
+                  onChange={(e) => setFormData({ ...formData, spouse: { ...formData.spouse, sacraments: { ...formData.spouse.sacraments, marriageInChurch: e.target.checked } } })}
+                  inputProps={{ 'aria-label': 'Marriage in the Church' }}
+                  sx={{ backgroundColor: 'white', color: 'black' }}
+                />
+              </Grid>
             </Grid>
           )}
           <Grid container spacing={2} direction="row" sx={{ marginTop: 2, paddingBottom: '32px' }}>
@@ -326,7 +390,7 @@ export default function ParishRegistration() {
                 <h4>{langData[language].fields.household.title}</h4>
               </Grid>
               <Grid item xs={6}>
-                <Button variant="contained" onClick={() => removeHouseholdMember(index)}>Remove Household Member</Button>
+                <Button variant="contained" color="error" onClick={() => removeHouseholdMember(index)}>Remove Household Member</Button>
               </Grid>
               <Grid item xs={4}>
                 <TextField
@@ -424,12 +488,12 @@ export default function ParishRegistration() {
                   <option value="female">{language === 'en' ? 'Female' : 'Femenino'}</option>
                 </TextField>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={4}>
                 <Typography variant="h6" gutterBottom>
                   {langData[language].fields.household.sacraments.baptism}
                 </Typography>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={member.sacraments?.baptism || false}
                   onChange={(e) => {
@@ -444,12 +508,12 @@ export default function ParishRegistration() {
                   sx={{ backgroundColor: 'white', color: 'black' }}
                 />
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={4}>
                 <Typography variant="h6" gutterBottom>
                   {langData[language].fields.household.sacraments.firstCommunion}
                 </Typography>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={member.sacraments?.firstCommunion || false}
                   onChange={(e) => {
@@ -461,6 +525,47 @@ export default function ParishRegistration() {
                     setFormData({ ...formData, household: updatedHousehold });
                   }}
                   inputProps={{ 'aria-label': 'First Communion' }}
+                  sx={{ backgroundColor: 'white', color: 'black' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography variant="h6" gutterBottom>
+                  {langData[language].fields.household.sacraments.confirmation}
+                </Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Checkbox
+                  checked={member.sacraments?.confirmation || false}
+                  onChange={(e) => {
+                    const updatedHousehold = [...formData.household];
+                    updatedHousehold[index].sacraments = {
+                      ...updatedHousehold[index].sacraments,
+                      confirmation: e.target.checked,
+                    };
+                    setFormData({ ...formData, household: updatedHousehold });
+                  }}
+                  inputProps={{ 'aria-label': 'Confirmation' }}
+                  sx={{ backgroundColor: 'white', color: 'black' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <Typography variant="h6" gutterBottom>
+                  {langData[language].fields.household.sacraments.marriageInChurch}
+                </Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <Checkbox
+                  checked={member.sacraments?.marriageInChurch || false}
+                  onChange={(e) => 
+                  {
+                    const updatedHousehold = [...formData.household];
+                    updatedHousehold[index].sacraments = {
+                      ...updatedHousehold[index].sacraments,
+                      marriageInChurch: e.target.checked,
+                    };
+                    setFormData({ ...formData, household: updatedHousehold });
+                  }}
+                  inputProps={{ 'aria-label': 'Marriage in the Church' }}
                   sx={{ backgroundColor: 'white', color: 'black' }}
                 />
               </Grid>
