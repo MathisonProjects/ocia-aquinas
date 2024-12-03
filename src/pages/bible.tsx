@@ -14,6 +14,10 @@ export default function Bible() {
     setChapter("1");
   }, [book]);
 
+  const copyToClipboard = (verse: string) => {
+    navigator.clipboard.writeText(`${book} ${chapter}:${verse} ${bibleData[book][chapter][verse]}`);
+  }
+
   return (
     <>
       <Head>
@@ -45,7 +49,16 @@ export default function Bible() {
         <Typography variant="h4">
             <List sx={{ 'paddingBottom': '32px' }}>
                 {Object.keys(bibleData[book][chapter]).map((verseNumber) => (
-                    <ListItem key={verseNumber}>
+                    <ListItem 
+                      key={verseNumber} 
+                      onClick={() => copyToClipboard(verseNumber)} 
+                      sx={{ 
+                        '&:hover': { 
+                          backgroundColor: 'lightgray', 
+                          cursor: 'pointer' 
+                        } 
+                      }}
+                    >
                         <ListItemText primary={<><strong>{verseNumber}:</strong> {bibleData[book][chapter][verseNumber]}</>} />
                     </ListItem>
                 ))}
